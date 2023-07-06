@@ -1,6 +1,7 @@
 // import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+import 'background_contaienr.dart';
 import 'text_button_custom.dart';
 
 class LoginForm extends StatelessWidget {
@@ -56,7 +57,7 @@ class LoginForm extends StatelessWidget {
             labelStyle: const TextStyle(
                 color: Colors.black, fontWeight: FontWeight.bold),
             enabledBorder: OutlineInputBorder(
-              borderSide: const BorderSide(color: Colors.purple, width: 3),
+              borderSide: BorderSide(color: Colors.purple, width: 3),
               borderRadius: BorderRadius.circular(20),
             ),
           ),
@@ -126,25 +127,5 @@ class LoginForm extends StatelessWidget {
         )
       ],
     );
-  }
-}
-
-class BackgroundContainer extends StatelessWidget {
-  const BackgroundContainer({
-    Key? key,
-    required this.child,
-    required this.bgColor,
-  }) : super(key: key);
-  final Widget child;
-  final Color? bgColor;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        padding: const EdgeInsets.only(bottom: 15, right: 10),
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            color: bgColor!.withOpacity(0.4)),
-        child: child);
   }
 }
