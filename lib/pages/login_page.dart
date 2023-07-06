@@ -26,7 +26,7 @@ class LoginPage extends StatelessWidget {
           Center(
             child: BlurredContainer(
               width: double.infinity,
-              height: MediaQuery.of(context).size.height * 0.6,
+              height: MediaQuery.of(context).size.height * 0.65,
               bgColor: Colors.blue[100],
               child: const LoginForm(),
             ),

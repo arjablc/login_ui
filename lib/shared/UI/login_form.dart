@@ -1,4 +1,7 @@
+// import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+
+import 'text_button_custom.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({super.key});
@@ -32,7 +35,7 @@ class LoginForm extends StatelessWidget {
               borderRadius: BorderRadius.circular(20),
             ),
             labelStyle: const TextStyle(
-                color: Colors.purple, fontWeight: FontWeight.bold),
+                color: Colors.black, fontWeight: FontWeight.bold),
             enabledBorder: OutlineInputBorder(
               borderSide: const BorderSide(color: Colors.purple, width: 3),
               borderRadius: BorderRadius.circular(20),
@@ -51,7 +54,7 @@ class LoginForm extends StatelessWidget {
               borderRadius: BorderRadius.circular(20),
             ),
             labelStyle: const TextStyle(
-                color: Colors.purple, fontWeight: FontWeight.bold),
+                color: Colors.black, fontWeight: FontWeight.bold),
             enabledBorder: OutlineInputBorder(
               borderSide: const BorderSide(color: Colors.purple, width: 3),
               borderRadius: BorderRadius.circular(20),
@@ -59,24 +62,89 @@ class LoginForm extends StatelessWidget {
           ),
         ),
         const SizedBox(
-          height: 5,
+          height: 10,
         ),
         Row(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
-              "No account yet?",
-              style: TextStyle(fontSize: 20),
+            BackgroundContainer(
+              bgColor: Colors.purple[100],
+              child: Row(children: [
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.facebook,
+                    size: 50,
+                  ),
+                ),
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.mail,
+                    color: Colors.black,
+                    size: 50,
+                  ),
+                ),
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.apple,
+                    color: Colors.black,
+                    size: 50,
+                  ),
+                ),
+              ]),
             ),
-            TextButton(
-                onPressed: () {},
-                child: const Text(
-                  "Make One",
-                  style: TextStyle(fontSize: 20, color: Colors.purple),
-                ))
+            const Spacer(),
+            TextButtonCustom(
+              text: "Login",
+              textSize: 20,
+              bgColor: Colors.purple[100],
+              function: null,
+            )
+          ],
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const Flexible(
+              flex: 3,
+              child: Text("By logging in you accept our term of services"),
+            ),
+            Flexible(
+              flex: 5,
+              child: TextButtonCustom(
+                function: null,
+                text: "Register",
+                textSize: 20,
+                bgColor: Colors.purple[100],
+              ),
+            )
           ],
         )
       ],
     );
+  }
+}
+
+class BackgroundContainer extends StatelessWidget {
+  const BackgroundContainer({
+    Key? key,
+    required this.child,
+    required this.bgColor,
+  }) : super(key: key);
+  final Widget child;
+  final Color? bgColor;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        padding: const EdgeInsets.only(bottom: 15, right: 10),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            color: bgColor!.withOpacity(0.4)),
+        child: child);
   }
 }
